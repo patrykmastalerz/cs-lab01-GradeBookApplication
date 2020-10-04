@@ -6,10 +6,10 @@ using System.Text;
 namespace GradeBook.GradeBooks
 {
  
-    class StandardGradeBook : BaseGradeBook
+    public class StandardGradeBook : BaseGradeBook
     {
         //public GradeBookType Type; 
-        public StandardGradeBook(string name) : base(name)
+        public StandardGradeBook(string name, bool param) : base(name, param)
         {
 
             Type = GradeBookType.Standard;
