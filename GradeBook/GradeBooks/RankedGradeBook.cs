@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GradeBook.GradeBooks
 {
-    class RankedGradeBook : BaseGradeBook
+    public class RankedGradeBook : BaseGradeBook
     {
         public RankedGradeBook(string name, bool param) : base(name,  param)
         {
@@ -14,20 +14,37 @@ namespace GradeBook.GradeBooks
 
         public override char GetLetterGrade(double averageGrade)
         {
+
+        
             if (Students.Count < 5)
             {
                 throw new InvalidOperationException();
             }
-            if (averageGrade > 20)
+
+        
+            int Fist20ProcentOfStudents = Students.Count / 5;
+           
+            int counter = 1;
+            foreach (var student in Students)
+            {
+                if (student.AverageGrade < averageGrade)
+                {
+                    counter++;
+                }
+            }
+            int grade = counter / Fist20ProcentOfStudents;
+
+            if (grade == 5)
                 return 'A';
-            else if (averageGrade > 40)
+            else if (grade == 4)
                 return 'B';
-            else if (averageGrade >= 50)
+            else if (grade == 3)
                 return 'C';
-            else if (averageGrade >= 80)
+            else if (grade == 2)
                 return 'D';
             else
                 return 'F';
+
         }
  
 

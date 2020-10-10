@@ -8,7 +8,7 @@ namespace GradeBook.GradeBooks
  
     public class StandardGradeBook : BaseGradeBook
     {
-        //public GradeBookType Type; 
+       
         public StandardGradeBook(string name, bool param) : base(name, param)
         {
 
